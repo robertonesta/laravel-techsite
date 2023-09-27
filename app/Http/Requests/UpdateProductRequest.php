@@ -13,7 +13,7 @@ class UpdateProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:255',
+            'price' => 'required',
+            'image' => 'required|max:255',
+            'description' => 'nullable|max:3000',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'This product must have a name!',
+            'image.required' => 'This product must have an image!',
+            'image.max' => 'The image length cannot be more than 255 characters!',
+            'price.required' => 'This product must have a name!',
+            'description.max' => 'The description length cannot be more than 3000 characters!',
         ];
     }
 }

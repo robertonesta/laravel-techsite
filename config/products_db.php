@@ -25,7 +25,7 @@ return [
     ["name" => "HP 15-fc0014nl Notebook",
     "price" => 629.99,
     "image" => "https://www.hp.com/it-it/shop/Html/Merch/Images/c08484462_1750x1285.jpg",
-    "description" => "Il PC laptop HP da 15,6 pollici, è ricco di funzionalità ed è la scelta perfetta per ogni budget, oltre ad essere più sostenibile per il pianeta. Costruito con materiali riciclati, questo potente laptop HP è dotato di processore AMD[1], ampio spazio di archiviazione e una grafica avanzata. Inoltre, il rapporto screen-to-body dell’85%[2] e la sottile cornice su tre lati offre tantissimo spazio per una visualizzazione straordinaria.",
+    "description" => "Il PC laptop HP da 15,6 pollici, è ricco di funzionalità ed è la scelta perfetta per ogni budget, oltre ad essere più sostenibile per il pianeta. Costruito con materiali riciclati, questo potente laptop HP è dotato di processore AMD, ampio spazio di archiviazione e una grafica avanzata. Inoltre, il rapporto screen-to-body dell/’85% e la sottile cornice su tre lati offre tantissimo spazio per una visualizzazione straordinaria.",
     ],
     ["name" => "Xbox Series X",
     "price" => 549.99,

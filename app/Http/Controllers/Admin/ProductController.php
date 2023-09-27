@@ -16,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('admin.products.index', compact ('products'));
     }
 
     /**
@@ -26,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -37,7 +38,13 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $val_data = $request->validated();
+        $slug = Product::generateSlug($val_data['name']);
+        $val_data['slug'] = $slug;
+
+        $new_product = Product::create($val_data);
+
+        return to_route('admin.products.index')->with('message', 'Product added successfully!');
     }
 
     /**
@@ -48,7 +55,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('admin.products.show', compact('product'));
     }
 
     /**
@@ -59,7 +66,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -71,7 +78,13 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $val_data = $request->validated();
+        $slug = Product::generateSlug($val_data['name']);
+        $val_data['slug'] = $slug;
+
+        $product->update($val_data);
+
+        return to_route('admin.products.index')->with('message', 'The product has been updated successfully!');
     }
 
     /**
@@ -82,6 +95,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return to_route('admin.products.index')->with('message', 'The product has been deleted successfully');
     }
 }
